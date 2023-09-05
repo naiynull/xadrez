@@ -5,7 +5,8 @@ using namespace std;
 
 int main(){
   Tabuleiro T;
-  //  Cavalo C;
+  
 
-  T.PerguntPeca();
+ T.PerguntPeca();
+  return 0;
 }

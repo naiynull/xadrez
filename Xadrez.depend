@@ -1,13 +1,12 @@
 # depslib dependency file v1.0
-1693339898 source:/home/alunos/Downloads/Xadrez/Peca.cpp
+1693933851 source:/home/alunos/Downloads/Xadrez/Peca.cpp
 	"Peca.h"
 
-1693340323 /home/alunos/Downloads/Xadrez/Peca.h
+1693934005 /home/alunos/Downloads/Xadrez/Peca.h
 	<iostream>
 
-1693339831 source:/home/alunos/Downloads/Xadrez/main.cpp
+1693934175 source:/home/alunos/Downloads/Xadrez/main.cpp
 	<iostream>
-	"Tabuleiro.h"
 
 1693339819 source:/home/alunos/Downloads/Xadrez/Tabuleiro.cpp
 	"Tabuleiro.h"
