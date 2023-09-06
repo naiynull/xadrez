@@ -8,5 +8,6 @@ int main(){
   
 
  T.PerguntPeca();
+ T.imprimirMovimentoPossiveis();
   return 0;
 }

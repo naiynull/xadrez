@@ -19,7 +19,8 @@ public:
     int cor;
     virtual int getValor() = 0;
     int getCor();
-   virtual char getLetra();
+    virtual char getLetra();
+    virtual void getNome();
     void setCor(int);
 
 protected:
@@ -30,8 +31,7 @@ class Cavalo : public Peca
 public:
     int getValor();
     char getLetra();
-    
-
+void getNome();
     Cavalo(int);
 };
 
@@ -40,7 +40,7 @@ class Bispo : public Peca
 public:
     int getValor();
     char getLetra();
-
+void getNome();
     Bispo(int);
 };
 
@@ -49,7 +49,7 @@ class Torre : public Peca
 public:
     int getValor();
     char getLetra();
-
+void getNome();
     Torre(int);
 };
 
@@ -58,7 +58,7 @@ class Dama : public Peca
 public:
     int getValor();
     char getLetra();
-
+void getNome();
     Dama(int);
 };
 
@@ -67,7 +67,7 @@ class Rei : public Peca
 public:
     int getValor();
     char getLetra();
-
+void getNome();
     Rei(int);
 };
 
@@ -76,6 +76,7 @@ class Peao : public Peca
 public:
     int getValor();
     char getLetra();
-
+void getNome();
     Peao(int);
 };
+

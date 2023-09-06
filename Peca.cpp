@@ -9,6 +9,10 @@ char Peca::getLetra(){
     return ' ';
 }
 
+void Peca::getNome(){
+    
+}
+
 void Peca::setCor(int cor)
 {
     this->cor = cor;
@@ -108,4 +112,35 @@ char Rei::getLetra()
 char Peao::getLetra()
 {
     return 'P';
+}
+
+
+//--------nome-------
+void Cavalo::getNome()
+{
+    cout<< "Cavalo";
+}
+
+void Bispo::getNome()
+{
+    cout<< "Bispo";
+}
+
+void Torre::getNome()
+{
+    cout<< "Torre";
+}
+
+void Dama::getNome()
+{
+    cout<< "Dama";
+}
+
+void Rei::getNome()
+{
+    cout<< "Rei";
+}
+void Peao::getNome()
+{
+    cout<< "Peão";
 }

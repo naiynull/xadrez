@@ -5,7 +5,7 @@ Tabuleiro::Tabuleiro()
 
     for (int i = 0; i < 8; i++)
         for (int j = 0; j < 8; j++)
-            Tabu[i][j]=NULL;
+            Tabu[i][j] = NULL;
 }
 void Tabuleiro::PerguntPeca()
 {
@@ -14,49 +14,18 @@ void Tabuleiro::PerguntPeca()
         for (int j = 0; j < 8; j++)
         {
 
-            Menu(i,j);
-
+            Menu(i, j);
+            EscolhePeca();
             cout << "Posição";
-            switch (j)
-            {
-
-            case 0:
-                cout << "A";
-                break;
-
-            case 1:
-                cout << " B";
-                break;
-
-            case 2:
-                cout << "C";
-                break;
-
-            case 3:
-                cout << "D";
-                break;
-
-            case 4:
-                cout << "E";
-                break;
-
-            case 5:
-                cout << "F";
-                break;
-
-            case 6:
-                cout << "G";
-                break;
-
-            case 7:
-                cout << "H";
-                break;
-            }
+            LetraColuna(j);
             cout << 9 - (i + 1) << endl;
             cout << "Informe a peça?";
             cin >> np;
-            cout << "Informe a cor?";
-            cin >> nc;
+            if (np > 0 && np < 7)
+            {
+                cout << "Informe a cor?";
+                cin >> nc;
+            }
             switch (np)
             {
             case 1:
@@ -83,31 +52,47 @@ void Tabuleiro::PerguntPeca()
         }
     }
 }
-
-void Tabuleiro::Menu(int lin,int col)
+void Tabuleiro::LetraColuna(int nc)
 {
-    system("clear");
-    cout<<"     A | B | C | D | E | F | G | H |"<<endl;
-    cout<<"     __ ___ ___ ___ ___ ___ ___ ___"<<endl;
-    for (int i = 0; i < 8; i++)
-    { // loop mostra as linhas
-        std::cout << 9-(i+1) << "   ";
-        for (int j = 0; j < 8; j++)
-        {
-            
-            if (Tabu[i][j] != NULL)
-            {
-                std::cout << " " << Tabu[i][j]->getLetra() << " |";
-            }
-            else if(i==lin && j==col)
-            {
-                std::cout << " " << "x |";
-            }else{
-                std::cout << "   |";
-            }
-        }
-        cout<<"\n";
+
+    switch (nc)
+    {
+
+    case 0:
+        cout << "A";
+        break;
+
+    case 1:
+        cout << " B";
+        break;
+
+    case 2:
+        cout << "C";
+        break;
+
+    case 3:
+        cout << "D";
+        break;
+
+    case 4:
+        cout << "E";
+        break;
+
+    case 5:
+        cout << "F";
+        break;
+
+    case 6:
+        cout << "G";
+        break;
+
+    case 7:
+        cout << "H";
+        break;
     }
+}
+void Tabuleiro::EscolhePeca()
+{
     cout << "Opção de peça: \n";
     cout << "0.Sem peça \n";
     cout << "1.peão \n";
@@ -120,4 +105,63 @@ void Tabuleiro::Menu(int lin,int col)
     cout << "Opção de cor \n";
     cout << "1.branco \n";
     cout << "2.Preta \n";
+}
+void Tabuleiro::Menu(int lin, int col)
+{
+    system("clear");
+    cout << "     A | B | C | D | E | F | G | H |" << endl;
+    cout << "     __ ___ ___ ___ ___ ___ ___ ___" << endl;
+    for (int i = 0; i < 8; i++)
+    { // loop mostra as linhas
+        std::cout << 9 - (i + 1) << "   ";
+        for (int j = 0; j < 8; j++)
+        {
+
+            if (Tabu[i][j] != NULL)
+            {
+                if(i%2==0 && j%2==0){
+                std::cout << "\e[36;7m " <<Tabu[i][j]->getLetra() << " \e[m"<< "|";
+                }else{
+                    std::cout << " " <<Tabu[i][j]->getLetra() << " "<< "|";
+                }
+            }
+            else if (i == lin && j == col && lin!=30)
+            {
+                 if(i%2==0 && j%2==0){
+                  std::cout << "\e[36;7m "<< "x \e[m|";
+                }else{
+                     std::cout << " "<< "x |";
+                }
+            }
+            else
+            {
+                  if(i%2==0 && j%2==0){
+                std::cout << "\e[36;7m   \e[m|";
+                }else{
+                      std::cout << "   |";
+        
+                }
+              
+            }
+        }
+        cout << "\n";
+    }
+}
+
+void Tabuleiro::imprimirMovimentoPossiveis()
+{
+  Menu(30,30);
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 8; j++)
+        {
+            if (Tabu[i][j] != NULL)
+            {
+                Tabu[i][j]->getNome();
+                cout<< "na casa";
+              LetraColuna(j);cout<<9-(i+1);
+std::cout<<endl;
+            }
+        }
+    }
 }
